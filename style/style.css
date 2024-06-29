@@ -1,0 +1,831 @@
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lilita+One&family=Poppins:wght@200;400;600;800&family=Roboto:wght@900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --main: #004304;
+  --mainn: #dfc20a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/**loading**/
+.load-content{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100000;
+}
+
+.bounceball{
+  position: relative;
+  display: inline-block;
+  height: 97px;
+  width: 25px;
+  &:before {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--mainn);
+    transform-origin: 50%;
+    animation: bounce 500ms alternate infinite ease;
+  }
+  }
+
+@keyframes bounce {
+  0% {
+    top: 50px;
+    height: 7px;
+    border-radius: 60px 60px 20px 20px;
+    transform: scaleX(2);
+  }
+  35% {
+    height: 25px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
+  }
+}
+
+body {
+  background-image: url("../img/batik.jpg");
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 95vh;
+}
+
+.box {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 25px;
+  border-radius: 10px;
+  /* box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+                0 32px 64px -48px rgba(0,0,0,0.5); */
+}
+.form-box {
+  width: 330px;
+  margin: 0px 10px;
+}
+
+.form-box header {
+  font-size: 25px;
+  font-weight: 700;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--main);
+  margin-bottom: 30px;
+  font-family: "Rubik", sans-serif;
+}
+
+.form-box form .field {
+  display: flex;
+  margin: 15px;
+  flex-direction: column;
+}
+
+.form-box form .input input {
+  height: 40px;
+  width: 100%;
+  font-size: 15px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ececec;
+  outline: none;
+}
+
+.btn {
+  height: 35px;
+  background: var(--main);
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 5px;
+  padding: 0 10px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.submit {
+  width: 100%;
+}
+
+.links {
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+.pesan {
+  text-align: center;
+  background: #edf9f1;
+  padding: 15px 0px;
+  border: 1px solid #d2d2d2;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  color: green;
+}
+
+/* navbar */
+nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0%;
+  height: 70px;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 0 7%;
+  transition: 0.3s;
+  z-index: 999;
+}
+
+nav.sticky {
+  background: var(--main);
+  height: 50px;
+}
+
+nav.slide{
+  height: 70px;
+}
+
+nav .logo {
+  font-size: 20px;
+}
+
+nav .item {
+  display: inline-block;
+  padding: 25px;
+}
+
+nav .item a::before {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  transform: scale(0);
+  height: 2px;
+  width: 70%;
+  bottom: -3px;
+  transition: 0.3s;
+}
+
+nav .item a.active::before {
+  transform: scale(1);
+}
+
+nav .item a:hover::before {
+  transform: scale(1);
+}
+
+nav .item a:hover {
+  color: #fff;
+}
+
+nav .item a {
+  color: #ffffffdb;
+  text-decoration: none;
+  font-size: 13px;
+  position: relative;
+  padding: 0 15px;
+}
+
+nav .item a.active {
+  color: #dfc20a;
+}
+
+nav .akun a,
+nav .akun #a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  position: relative;
+}
+
+nav .akun #a::after {
+  content: "Ubah Profil";
+  position: absolute;
+  font-size: 13px;
+  border-radius: 5px;
+  background-color: var(--mainn);
+  font-weight: 600;
+  text-align: center;
+  height: 17px;
+  width: 80px;
+  padding: 3px 5px;
+  left: -0px;
+  bottom: -20px;
+  transform: scale(0) translateY(-20px);
+  transition: 0.3s;
+}
+
+nav .akun #a:hover::after {
+  transform: scale(1) translateY(17px);
+}
+
+nav .toggle {
+  display: none;
+  cursor: pointer;
+}
+
+nav .toggle img {
+  height: 25px;
+  position: absolute;
+  filter: brightness(500);
+}
+
+nav .toggle #x {
+  display: none;
+}
+
+nav .akun {
+  display: flex;
+  gap: 35px;
+  box-sizing: border-box;
+}
+
+nav #a,
+nav #b,
+nav #c {
+  font-weight: 400;
+  transition: 0.3s;
+  padding: 0 5px;
+}
+
+nav #a:hover,
+nav #b:hover {
+  opacity: 0.9;
+}
+
+nav #b {
+  border-radius: 5px;
+  background: #dfc20a;
+  padding: 3px 10px;
+}
+
+#nav-btm {
+  height: 70px;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: var(--main);
+}
+
+/* Beranda */
+.beranda {
+  display: flex;
+  padding: 70px 7% 0 7%;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap-reverse;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(150deg, #07500e, #011b04);
+  text-align: center;
+  color: #fff;
+  gap: 25px;
+}
+
+.beranda .b {
+  font-size: 55px;
+  line-height: 50px;
+}
+
+.beranda p {
+  font-size: 13px;
+}
+
+#btn {
+  margin: 30px 0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  font-weight: 600;
+  color: #fff;
+  background: #dfc20a;
+  cursor: pointer;
+}
+
+#btn:hover {
+  opacity: 0.8;
+}
+
+#apa-lu {
+  display: flex;
+}
+
+/* profil */
+.profil {
+  padding: 70px 5% 50px 5%;
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #fff;
+}
+
+b {
+  color: var(--mainn);
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.more {
+  margin: 30px 0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  font-weight: 600;
+  color: #fff;
+  background: #dfc20a;
+  cursor: pointer;
+}
+
+.selengkapnya {
+  display: none;
+  background-image: url("../img/batik2.jpg");
+  color: #000;
+  background-size: cover;
+  background-position: center;
+  transition: 0.3s;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 70px;
+  right: 7%;
+  left: 7%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 7px 10px rgba(0, 0, 0, 0.5), -5px -7px 7px rgba(0, 0, 0, 0.1);
+}
+
+.selengkapnya.more {
+  display: flex;
+}
+
+.selengkapnya .img {
+  height: 30px;
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  padding: 5px;
+}
+
+.selengkapnya .teks {
+  font-size: 10px;
+  padding: 0 15px 25px 15px;
+  cursor: default;
+}
+
+.profil .col-a {
+  width: 800px;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.profil span {
+  color: #dfc20a;
+}
+
+.profil #bc {
+  font-size: 25px;
+  color: #000;
+  line-height: 10px;
+}
+
+.profil .col-a p {
+  font-size: 13px;
+  font-family: "Poppins", sans-serif;
+  margin-top: 10px;
+}
+
+.profil .col-b {
+  width: 400px;
+  height: 430px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.profil img {
+  height: 100%;
+}
+
+.profil-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  padding: 30px 5% 100px 5%;
+  background: #fff;
+  flex-wrap: wrap;
+  gap: 80px;
+}
+
+.profil-2 h1 {
+  font-size: 30px;
+  line-height: 35px;
+}
+
+.profil-2 span {
+  font-size: 13px;
+  font-weight: 800;
+  background: #dfc20a;
+  border-radius: 50px;
+  line-height: 40px;
+  padding: 2px 7px;
+  text-align: center;
+}
+
+.profil-2 p {
+  font-size: 13px;
+}
+
+/* Berita */
+.berita {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 70px 5%;
+  background: #f3f2f2;
+}
+
+.berita .ava {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 10px;
+}
+
+.berita .berita-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.berita .content {
+  height: 400px;
+  width: 270px;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 5px 7px 10px rgba(0, 0, 0, 0.5),
+    -3px -5px 3px rgba(255, 255, 255, 0.1);
+}
+
+.berita .content .img {
+  height: 270px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.berita img {
+  height: 100%;
+}
+
+.berita .teks {
+  padding: 5px 15px 10px 15px;
+}
+
+.berita .teks span {
+  background: var(--mainn);
+  font-size: 10px;
+  padding: 0 3px;
+  color: #fff;
+}
+
+.berita .teks h3 {
+  font-size: 11px;
+  line-height: 15px;
+  margin: 7px 0;
+}
+
+.berita .teks a {
+  color: #000;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.berita .teks a:hover {
+  color: var(--main);
+  text-decoration: underline;
+}
+
+.berita .teks p {
+  font-size: 10px;
+}
+
+/* Kontak */
+.kontak {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: #fff;
+  background-image: url("../img/batik.jpg");
+}
+
+.kontak h1 {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.kontak a {
+  text-decoration: none;
+  color: #000;
+  transition: 0.3s;
+}
+
+.kontak a:hover {
+  color: #0026ff;
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background: #011b04;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer h3 {
+  font-size: 12px;
+  padding-top: 25px;
+}
+
+footer .p {
+  font-size: 7px;
+  margin-bottom: 20px;
+}
+
+footer .btm {
+  font-size: 7px;
+  padding: 5px;
+  background: #000e02;
+}
+
+footer .btm a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 750px) {
+  nav {
+    padding: 0 3%;
+  }
+
+  nav .item a {
+    padding: 10px;
+  }
+
+  nav .akun {
+    gap: 10px;
+  }
+
+  main {
+    background: #012300;
+    height: 100vh;
+    padding-top: 100px;
+    flex-direction: column-reverse;
+  }
+
+  main .col-a h1 {
+    font-size: 25px;
+  }
+
+  main .col-a .b {
+    font-size: 45px;
+    line-height: 40px;
+  }
+
+  main .col-a p {
+    font-size: 10px;
+  }
+
+  main .col-b img {
+    height: 250px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+    padding: 0 3%;
+  }
+
+  nav.slide {
+    height: 70px;
+  }
+
+  nav .item {
+    display: flex;
+    flex-direction: column;
+    right: -320px;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 55%;
+    /* background: hsl(0 0% 100% / 0.1); */
+    backdrop-filter: blur(20px);
+    background: #000000b3;
+    box-sizing: border-box;
+    padding: 70px 0 0 30px;
+    transition: 0.3s;
+  }
+
+  nav .item.slide {
+    right: 0;
+  }
+  
+  nav .item a{
+    margin: 15px 20px 15px 5px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  nav .item a.active{
+    background: rgba(255, 255, 255, .3);
+  }
+  
+  nav .item a.active::before {
+    transform: scale(0);
+  }
+
+  nav .item a:before {
+    content: "";
+    position: absolute;
+    background-color: #ffffff00;
+    transform: scale(0);
+    height: 2px;
+    width: 100%;
+    bottom: -7px;
+    left: 0;
+    transition: 0.3s;
+  }
+
+  nav .item a:hover::before {
+    transform: scale(0);
+    display: none;
+  }
+
+  nav .akun {
+    z-index: 99;
+    margin-top: 550px;
+    margin-right: -460px;
+    transition: 0.3s;
+  }
+
+  nav .akun.slide {
+    margin-right: 0;
+  }
+
+  nav .toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  nav .toggle #x.slide {
+    display: block;
+  }
+
+  nav .toggle #y.slide {
+    display: none;
+  }
+
+  .selengkapnya {
+    position: sticky;
+  }
+
+  .image img {
+    display: none;
+  }
+  
+  /* beranda */
+  .beranda .col-a{
+    margin-top: -40px;
+  }
+  
+  .beranda .col-b{
+    margin-bottom: -50px;
+  }
+  
+  .beranda {
+    padding: 70px 0;
+    text-align: start;
+  }
+  
+  .beranda h1{
+    font-size: 30px;
+  }
+
+  .beranda .b {
+    font-size: 65px;
+    line-height: 55px;
+  }
+
+  .beranda p {
+    font-size: 13px;
+  }
+
+  #btn {
+    margin: 20px 0;
+    padding: 8px 13px;
+  }
+}
+
+/* .nav{
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    line-height: 60px;
+    z-index: 100;
+}
+.logo{
+    font-size: 25px;
+    font-weight: 900;
+    
+}
+.logo a{
+    text-decoration: none;
+    color: #000;
+}
+.right-links a{
+    padding: 0 10px;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+.main-box{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.main-box .top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.bottom{
+    width: 100%;
+    margin-top: 20px;
+} */
+@media only screen and (max-width: 840px) {
+  .main-box .top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .top .box {
+    margin: 10px 10px;
+  }
+  .bottom {
+    margin-top: 0;
+  }
+}
